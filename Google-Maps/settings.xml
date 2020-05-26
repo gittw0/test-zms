@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Google Maps" type="rest" id="a4404eb6-6578-4bc4-a794-4cdc277f30f1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a4404eb6-6578-4bc4-a794-4cdc277f30f1fileName">Google-Maps</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>http://maps.googleapis.com</con:endpoint>
+  </con:endpoints>
+</con:interface>

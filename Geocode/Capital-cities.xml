@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Capital cities" searchProperties="true" id="13fd4c87-d2d0-4b4f-a7f4-629c290cd19a" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="13fd4c87-d2d0-4b4f-a7f4-629c290cd19afileName">Capital-cities</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="DataSource" id="08b01eeb-4d4d-4a8b-a0b6-9aba678111ef">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Grid">
+        <con:configuration>
+          <check><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry></xml-fragment>]]></check>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Beijing</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">xml</con:entry></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Tokyo</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">xml</con:entry></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Moscow</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">xml</con:entry></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Seoul</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">xml</con:entry></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Jakarta</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">xml</con:entry></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Beijing</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">json</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Tokyo</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">json</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Moscow</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">json</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Seoul</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">json</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row>
+          <row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">Jakarta</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">json</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row>
+          <recognizeAsPlainText>true</recognizeAsPlainText>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>cityName</con:property>
+      <con:property>format</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Geocode search" id="41facf24-255d-4225-af4b-e86aa805bfd8">
+    <con:settings/>
+    <con:config service="Google Maps" resourcePath="/maps/api/geocode/{format}" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Geocode search" mediaType="application/json" id="2e1df8cb-1dbc-4e6b-b90d-a7b0decda7c1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="7adb83d0-bd06-4484-b12a-2814b005065b">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters>
+          <con:entry key="address" value="${DataSource#cityName}"/>
+          <con:entry key="format" value="${DataSource#format}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>address</con:entry>
+          <con:entry>format</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="7851b4c7-4879-4729-88b5-75671ee8f7c4">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>Geocode search</targetStep>
+    </con:config>
+  </con:testStep>
+  <con:loadTest id="37b5481f-5262-4976-9bba-b39d0a1f390a" name="Baseline Load Test (Geocoding)">
+    <con:settings>
+      <con:setting id="HttpSettings@close-connections">false</con:setting>
+      <con:setting id="hasBeenConvertedToLoadUITest">true</con:setting>
+    </con:settings>
+    <con:threadCount>3</con:threadCount>
+    <con:startDelay>0</con:startDelay>
+    <con:sampleInterval>250</con:sampleInterval>
+    <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
+    <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
+    <con:historyLimit>-1</con:historyLimit>
+    <con:testLimit>60</con:testLimit>
+    <con:limitType>TIME</con:limitType>
+    <con:loadStrategy>
+      <con:type>Simple</con:type>
+    </con:loadStrategy>
+    <con:assertion type="Step Status" name="Step Status"/>
+    <con:maxAssertionErrors>100</con:maxAssertionErrors>
+    <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
+    <con:strategyInterval>500</con:strategyInterval>
+    <con:reportParameters/>
+  </con:loadTest>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>08b01eeb-4d4d-4a8b-a0b6-9aba678111ef</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
